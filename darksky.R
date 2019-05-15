@@ -14,7 +14,7 @@ us_blue <- "#002664"
 
 rdu_forecast$hourly %>% 
   mutate(
-    hour = hour(time),
+    hour = hour(time) - 5, # because package converts to local time
     time_of_day = cut(hour, breaks = 4, labels = c("night", "morning", "afternoon", "evening"))
   ) %>%
   group_by(time_of_day) %>%
