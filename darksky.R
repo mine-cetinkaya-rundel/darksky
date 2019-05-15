@@ -18,13 +18,13 @@ edi_forecast$hourly %>%
     time_of_day = cut(hour, breaks = 4, labels = c("night", "morning", "afternoon", "evening"))
   ) %>%
   group_by(time_of_day) %>%
-  summarize(mean_temp = mean(apparentTemperature)) %>%
+  summarise(mean_temp = mean(apparentTemperature)) %>%
   ggplot(aes(x = time_of_day, y = mean_temp)) +
-    geom_line(group = 1, color = scot_blue) + 
-    geom_point(color = scot_blue) +
+    geom_line(group = 1, colour = scot_blue) + 
+    geom_point(colour = scot_blue) +
     labs(x = "", y = "Mean temperature (F)", 
          title = "Apparent temperature",
-         subtitle = "May 15, 2019 - Edinburgh, UK") +
+         subtitle = "15 May 2019 - Edinburgh, UK") +
     scale_y_continuous(limits = c(40, 80),
                        sec.axis = sec_axis(trans = ~(. - 32) * (5/9), 
                                            name = "Mean temperature (C)"))
