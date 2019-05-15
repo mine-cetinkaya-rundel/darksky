@@ -20,11 +20,11 @@ rdu_forecast$hourly %>%
   group_by(time_of_day) %>%
   summarize(mean_temp = mean(apparentTemperature)) %>%
   ggplot(aes(x = time_of_day, y = mean_temp)) +
-  geom_line(group = 1, color = us_blue)  + 
-  geom_point(color = us_blue) +
-  labs(x = "", y = "Mean temperature (F)", 
-       title = "Apparent temperature",
-       subtitle = "May 15, 2019 - Durham, NC") +
-  scale_y_continuous(limits = c(40, 80),
-                     sec.axis = sec_axis(trans = ~(. - 32) * (5/9), 
-                                         name = "Mean temperature (C)"))
+    geom_line(group = 1, color = us_blue)  + 
+    geom_point(color = us_blue) +
+    labs(x = "", y = "Mean temperature (F)", 
+         title = "Apparent temperature",
+         subtitle = "May 15, 2019 - Durham, NC") +
+    scale_y_continuous(limits = c(40, 80),
+                       sec.axis = sec_axis(trans = ~(. - 32) * (5/9), 
+                                           name = "Mean temperature (C)"))
